@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lala-bet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="root">
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__item"></div>
+            <div data-id="logo" class="logo" data-toggle="modal" data-target="#modalRegistration" data-dismiss="modal">
+                <img src="images/logo.svg" alt="LALA-BET">
+            </div>
+            <div class="languagepicker">
+                <a href="javascript:void(0)" title="українська" rel="nofollow" class="active">
+                    <img src="images/lang/en.png" alt=""/>
+                    <div class="arrow"></div>
+                </a>
+
+                <div class="languagepicker-dropduwn">
+                    <a href="" title="english" rel="nofollow" class="active" data-lang="en">
+                        <img src="images/lang/en.png" alt=""/>EN
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active" data-lang="pt">
+                        <img src="images/lang/pt.png" alt=""/>PT
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active" data-lang="de">
+                        <img src="images/lang/de.png" alt=""/>DE
+                    </a>
+                    <a href="" title="poland" rel="nofollow" class="active" data-lang="pl">
+                        <img src="images/lang/pl.png" alt=""/>PL
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active" data-lang="ca-en">
+                        <img src="images/lang/ca-en.png" alt=""/>CA-Eng
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active" data-lang="ca-fr">
+                        <img src="images/lang/ca-fr.png" alt=""/>CA-Fr
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active"  data-lang="au">
+                        <img src="images/lang/au.png" alt=""/>AU
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active" data-lang="nz">
+                        <img src="images/lang/nz.png" alt=""/>NZ
+                    </a>
+                    <a href="" title="" rel="nofollow" class="active" data-lang="in">
+                        <img src="images/lang/in.png" alt=""/>IN
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <button type="button" id="playNow" class="btn btn-play"></button>
+    </div>
+</div>
+
+<div class="modal modalSpin" id="modalSpin">
+    <div class="modal__dialog greeting__dialog">
+        <div class="modal__content greeting__content">
+            <div class="modal__body">
+                <div class="modal__header">
+                    <div class="gradient-text">TRY AGAIN</div>
+                </div>
+                <button type="button" id="spin" class="btn btn-play">Spin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modalGetBonus" id="modalGetBonus">
+    <div class="modal__dialog greeting__dialog">
+        <div class="modal__content greeting__content">
+            <div class="modal__body">
+                <div class="modal__header">
+                    <div class="gradient-text">Your bonus</div>
+                    <div class="text">200% up to €1’000</div>
+                </div>
+                <button type="button" id="getBonus" class="btn btn-play">Get Bonus</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modalRegistration" id="modalRegistration">
+    <div class="modal__dialog">
+        <button class="modal__close" type="button" data-close="modal">&times;</button>
+        <div class="modal__content">
+            <form action="" class="signup">
+                <div class="signup__title">Sign Up</div>
+
+                <div class="btn-wrap">
+                    <a href="#" class="btn-social" rel="nofollow, noindex">
+                        <i class="google" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn-social" rel="nofollow, noindex">
+                        <i class="facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn-social" rel="nofollow, noindex">
+                        <i class="whatsapp" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn-social" rel="nofollow, noindex">
+                        <i class="telegram" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="or"><span>or Log in directly with</span></div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Email" name="email" required>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    <select id="country" class="form-control" name="country">
+                        <option>Currency</option>
+                        <option value="eur">EUR</option>
+                        <option value="usd">USD</option>
+                        <option value="uah">UAH</option>
+                    </select>
+
+                    <a href="/" class="code">I have a code</a>
+
+                    <div class="form-buttons">
+                        <input type="submit" class="form-button form-login" value="Log in">
+                        <input type="submit" class="form-button form-continue" value="Continue">
+                    </div>
+                </div>
+
+                <div class="notification">
+                    <p>
+                        By clicking “Sign up” you confirm 18 years and agree to
+                        <a href="/">Terms of Use</a> and <a href="/">Privacy Policy</a>
+                    </p>
+
+                    <div class="or"></div>
+
+                    <p>Need help? <a href="/">Contact us</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="js/common.js" type="module"></script>
+</body>
+</html>
