@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slot.css">
     <link rel="stylesheet" href="css/signupFrame.css">
     <script src="https://preprod.justbit.io/script/true-signup.js" async="" defer="" id="TRUE_SIGNUP"
             idframe="TRUE_SIGNUP_FRAME" brand="https://preprod.justbit.io" css="https://getbootstrap.com/docs/3.4/dist/css/bootstrap.min.css">
@@ -65,6 +66,72 @@
         </div>
     </header>
     <div class="main">
+<!--        <div class="slot">-->
+<!--            <div class="slot-mask">-->
+<!--                <div class="slot-column slot-column-1 slot-column-pos"> &lt;!&ndash;slot-column-moving&ndash;&gt;-->
+<!--                    <div class="slot-element slot-element-1 el-letq"></div>-->
+<!--                    <div class="slot-element slot-element-2 el-momy"></div>-->
+<!--                    <div class="slot-element slot-element-3 el-scrb"></div>-->
+<!--                    <div class="slot-element slot-element-4 el-letq"></div>-->
+<!--                    <div class="slot-element slot-element-5 el-momy"></div>-->
+<!--                    <div class="slot-element slot-element-6 el-scrb"></div>-->
+<!--                </div>-->
+<!--                <div class="slot-column slot-column-2 slot-column-pos">-->
+<!--                    <div class="slot-element slot-element-1 el-rman"></div>-->
+<!--                    <div class="slot-element slot-element-2 el-0010"></div>-->
+<!--                    <div class="slot-element slot-element-3 el-bird"></div>-->
+<!--                    <div class="slot-element slot-element-4 el-rman"></div>-->
+<!--                    <div class="slot-element slot-element-5 el-0010"></div>-->
+<!--                    <div class="slot-element slot-element-6 el-bird"></div>-->
+<!--                </div>-->
+<!--                <div class="slot-column slot-column-3 slot-column-pos">-->
+<!--                    <div class="slot-element slot-element-1 el-momy"></div>-->
+<!--                    <div class="slot-element slot-element-2 el-letk"></div>-->
+<!--                    <div class="slot-element slot-element-3 el-book"></div>-->
+<!--                    <div class="slot-element slot-element-4 el-momy"></div>-->
+<!--                    <div class="slot-element slot-element-5 el-letk"></div>-->
+<!--                    <div class="slot-element slot-element-6 el-book"></div>-->
+<!--                </div>-->
+<!--                <div class="slot-column slot-column-4 slot-column-pos">-->
+<!--                    <div class="slot-element slot-element-1 el-scrb"></div>-->
+<!--                    <div class="slot-element slot-element-2 el-leta"></div>-->
+<!--                    <div class="slot-element slot-element-3 el-bird"></div>-->
+<!--                    <div class="slot-element slot-element-4 el-scrb"></div>-->
+<!--                    <div class="slot-element slot-element-5 el-leta"></div>-->
+<!--                    <div class="slot-element slot-element-6 el-bird"></div>-->
+<!--                </div>-->
+<!--                <div class="slot-column slot-column-5 slot-column-pos">-->
+<!--                    <div class="slot-element slot-element-1 el-book"></div>-->
+<!--                    <div class="slot-element slot-element-2 el-rman"></div>-->
+<!--                    <div class="slot-element slot-element-3 el-letq"></div>-->
+<!--                    <div class="slot-element slot-element-4 el-book"></div>-->
+<!--                    <div class="slot-element slot-element-5 el-rman"></div>-->
+<!--                    <div class="slot-element slot-element-6 el-letq"></div>-->
+<!--                </div>-->
+<!--                <div class="slot-column slot-column-6 slot-column-pos">-->
+<!--                    <div class="slot-element slot-element-1 el-book"></div>-->
+<!--                    <div class="slot-element slot-element-2 el-rman"></div>-->
+<!--                    <div class="slot-element slot-element-3 el-letq"></div>-->
+<!--                    <div class="slot-element slot-element-4 el-book"></div>-->
+<!--                    <div class="slot-element slot-element-5 el-rman"></div>-->
+<!--                    <div class="slot-element slot-element-6 el-letq"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="slot-combo"></div>-->
+<!--        </div>-->
+
+        <div id="slot" class="slot">
+            <div id="reels" class="reels">
+                <div class="reel"></div>
+                <div class="reel"></div>
+                <div class="reel"></div>
+                <div class="reel"></div>
+                <div class="reel"></div>
+                <div class="reel"></div>
+            </div>
+        </div>
+
         <button type="button" id="playNow" class="btn btn-play"></button>
     </div>
 </div>
@@ -96,7 +163,7 @@
     </div>
 </div>
 
-<div class="modal modalRegistration show" id="modalRegistration">
+<div class="modal modalRegistration" id="modalRegistration">
     <div class="modal__dialog">
         <button class="modal__close" type="button" data-close="modal">&times;</button>
         <div class="modal__content modal__form">
@@ -155,6 +222,7 @@
 </div>
 
 <script src="js/common.js" type="module"></script>
+<script src="js/slot.js" type="module"></script>
 <script src="js/signupFrame.js" type="module"></script>
 
 </body>
