@@ -11,10 +11,10 @@ const messages = {
     'pl': {
         "playNow": "Zagraj teraz",
     },
-    'ca-en': {
+    'ca-EN': {
         "playNow": "Play now",
     },
-    'ca-fr': {
+    'ca-FR': {
         "playNow": "Jouer nouveau",
     },
     'au': {
