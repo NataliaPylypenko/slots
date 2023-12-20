@@ -85,7 +85,6 @@ class Reel {
             );
             fragment.appendChild(icon.img);
         }
-        console.log(this.factor)
         this.symbolContainer.appendChild(fragment);
     }
 
@@ -167,25 +166,15 @@ class Slot {
 
     onSpinStart(symbols) {
         this.spinButton.disabled = true;
-
-        this.config.onSpinStart?.(symbols);
     }
 
     onSpinEnd(symbols) {
         this.spinButton.disabled = false;
-
-        this.config.onSpinEnd?.(symbols);
     }
 }
 
 const config = {
     inverted: false,
-    onSpinStart: (symbols) => {
-        console.log("onSpinStart", symbols);
-    },
-    onSpinEnd: (symbols) => {
-        console.log("onSpinEnd", symbols);
-    },
 };
 
 const slot = new Slot(document.getElementById("slot"), config);
