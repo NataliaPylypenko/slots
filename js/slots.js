@@ -1,6 +1,7 @@
 const refs = {
     btnPlay: document.querySelector(".btn-play"),
     currentStep: 0,
+    idModal: 'modalSpin',
     audioMusic: document.querySelector("#snd-music"),
     audioReels: document.querySelector("#snd-reels"),
     audioWin: document.querySelector("#snd-win"),
@@ -40,7 +41,6 @@ const combos = [
         [random(), random(), "scatter_win", random(), random()],
     ]
 ];
-console.log(combos[refs.currentStep][3][3]);
 
 const stopColumnAnimation = () => {
     const time1 = 200;
@@ -54,58 +54,37 @@ const stopColumnAnimation = () => {
     const column5 = document.querySelector(".slot-column-5");
     const column6 = document.querySelector(".slot-column-6");
 
-    if (refs.currentStep === 0) {
-        column1.classList.remove("slot-column-moving");
-        column1.classList.add("slot-column-end");
+    column1.classList.remove("slot-column-moving");
+    column1.classList.add("slot-column-end");
+
+    setTimeout(() => {
+        column2.classList.remove("slot-column-moving");
+        column2.classList.add("slot-column-end");
 
         setTimeout(() => {
-            column2.classList.remove("slot-column-moving");
-            column2.classList.add("slot-column-end");
+            column3.classList.remove("slot-column-moving");
+            column3.classList.add("slot-column-end");
 
             setTimeout(() => {
-                column3.style.opacity = "0.85";
-                column4.style.opacity = "0.85";
-                column5.style.opacity = "0.85";
-                column6.style.opacity = "0.85";
+                column4.classList.remove("slot-column-moving");
+                column4.classList.add("slot-column-end");
 
                 setTimeout(() => {
-                    column3.classList.remove("slot-column-moving");
-                    column3.classList.add("slot-column-end");
-
-                    column3.style.opacity = "1";
+                    column5.classList.remove("slot-column-moving");
+                    column5.classList.add("slot-column-end");
 
                     setTimeout(() => {
-                        column4.classList.remove("slot-column-moving");
-                        column4.classList.add("slot-column-end");
+                        column6.classList.remove("slot-column-moving");
+                        column6.classList.add("slot-column-end");
 
-                        column4.style.opacity = "1";
+                        refs.audioReels.pause();
 
-                        setTimeout(() => {
-                            document.querySelector(".slot-column-5").style.animationDuration = "0.1s";
-
-                            setTimeout(() => {
-                                column5.classList.remove("slot-column-moving");
-                                column5.classList.add("slot-column-end");
-
-                                column5.style.opacity = "1";
-                                column5.style.animationDuration = "";
-
-                                setTimeout(() => {
-                                    column6.classList.remove("slot-column-moving");
-                                    column6.classList.add("slot-column-end");
-
-                                    column6.style.opacity = "1";
-                                    refs.audioReels.pause();
-
-                                    setTimeout(showPopup, time2, 1);
-                                }, time3);
-                            }, time2);
-                        }, time1);
-                    }, time2);
+                        setTimeout(showModal, time3, refs.idModal);
+                    }, time3);
                 }, time2);
-            }, time1);
+            }, time2);
         }, time1);
-    }
+    }, time1);
 };
 
 const changeCombos = () => {
@@ -146,3 +125,49 @@ const startSlotAnimation = () => {
 };
 
 refs.btnPlay.addEventListener("click", startSlotAnimation);
+
+
+const showModal = (idModal) => {
+    document.querySelector(`#${idModal}`).classList.add("show");
+
+    if(idModal === 'modalSpin') {
+        document.querySelector("#btnSpin").addEventListener("click", hideModalSpin);
+        refs.currentStep++;
+        refs.idModal = 'modalGetBonus';
+        // refs.audioPopup_1.play();
+    } else if (idModal === 'modalGetBonus') {
+        document.querySelector("#btnGetBonus").addEventListener("click", hideModalGetBonus);
+        // refs.audioPopup_2.play();
+
+        setTimeout(() => {
+            refs.audioMusic.currentTime = 0;
+            refs.audioMusic.play();
+        }, 500)
+    }
+};
+
+const hideModalSpin = () => {
+    document.querySelector("#modalSpin").classList.remove("show");
+    document.querySelector("#btnSpin").removeEventListener("click", hideModalSpin);
+
+    // document.querySelector("#modalSpin").addEventListener("animationend", delModal);
+    startColumnsAnimation();
+};
+
+const hideModalGetBonus = () => {
+    document.querySelector("#modalGetBonus").classList.remove("show");
+    document.querySelector("#btnGetBonus").removeEventListener("click", hideModalGetBonus);
+
+    // document.querySelector("#modalShow").addEventListener("animationend", delModal);
+    showModalRegistration();
+};
+
+const showModalRegistration = () => {
+    document.querySelector('#modalRegistration').classList.add("show");
+    document.querySelector(".modal__close").addEventListener("click", hideModalRegistration);
+};
+
+const hideModalRegistration = () => {
+    document.querySelector("#modalRegistration").classList.remove("show");
+    document.querySelector(".modal__close").removeEventListener("click", hideModalRegistration);
+};
