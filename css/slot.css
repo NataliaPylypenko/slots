@@ -5,7 +5,7 @@
     transform: translateX(-50%);
     width: 1011px;
     height: 568px;
-    /*background: url("../images/bg-slot.png");*/
+    background: url("../images/bg-slot.png");
 }
 
 .reels {
@@ -17,7 +17,6 @@
     width: 696px;
     overflow: hidden;
     transition: opacity .5s ease;
-    background-color: saddlebrown;
 }
 
 .reel {

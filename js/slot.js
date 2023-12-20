@@ -71,7 +71,7 @@ class Reel {
     }
 
     get factor() {
-        return 1 + Math.pow(this.idx / 2, 2);
+        return 1 + this.idx / 2;
     }
 
     renderSymbols(nextSymbols) {
@@ -85,7 +85,7 @@ class Reel {
             );
             fragment.appendChild(icon.img);
         }
-
+        console.log(this.factor)
         this.symbolContainer.appendChild(fragment);
     }
 
@@ -103,7 +103,7 @@ class Reel {
         return Promise.race([animationPromise, timeoutPromise]).then(() => {
             if (this.animation.playState !== "finished") this.animation.finish();
 
-            const max = this.symbolContainer.children.length - 3;
+            const max = this.symbolContainer.children.length - 5;
 
             for (let i = 0; i < max; i++) {
                 this.symbolContainer.firstChild.remove();
