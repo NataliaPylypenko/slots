@@ -48,7 +48,8 @@ function detectLanguage() {
 function getLanguage() {
     return refs.url.searchParams.get('lang');
 }
-const currentLanguage = getLanguage();
+let currentLanguage = getLanguage();
+currentLanguage = messages.hasOwnProperty(currentLanguage) ? currentLanguage : 'en';
 
 function setLanguage(language) {
     const paramName = 'lang';
@@ -74,4 +75,4 @@ detectLanguage();
 changeLanguageHandler();
 
 // rendering of texts
-refs.playNow.innerHTML = messages[currentLanguage]?.playNow || 'Play now';
+refs.playNow.innerHTML = messages[currentLanguage].playNow;
