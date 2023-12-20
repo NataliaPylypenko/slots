@@ -8,7 +8,7 @@
     background: url("../images/bg-slot.png");
 }
 
-.reels {
+.slot-mask {
     display: flex;
     position: absolute;
     top: calc((100% - 463px) / 2);
@@ -19,27 +19,130 @@
     transition: opacity .5s ease;
 }
 
-.reel {
-    overflow: hidden;
-    width: calc(100% / 6);
-}
-
-.reel > .icons {
+.slot-column {
     position: relative;
     height: 100%;
+    width: calc(100% / 6);
+    overflow: hidden;
+    transition: transform .5s ease;
 }
 
-.reel > .icons > img {
+.slot-element {
     width: 100%;
     height: calc((100% / 5) - 3px);
     object-fit: contain;
     transform: translate3d(0, 0, 0);
 }
 
-#slot.inverted .reel {
-    transform: scaleY(-1);
+.slot-combo {
+    position: absolute;
+    top: 190px;
+    left: 14px;
+    opacity: 0
 }
 
-#slot.inverted .reel > .icons > img {
-    transform: scaleY(-1);
+.slot-combo.combo-show {
+    transition: opacity .35s ease;
+    opacity: 1;
+    animation: combo-anim .75s ease-in-out infinite
 }
+
+/* ========== */
+
+.slot-column-pos {
+    transform: translateY(-25px)
+}
+
+.slot-column-moving {
+    display: block;
+    filter: url("#blur");
+    animation: column-moving .15s linear infinite
+}
+
+.slot-column-end {
+    animation: column-back .2s ease-in-out forwards
+}
+
+/* ========== */
+
+@keyframes column-up {
+    100% {
+        transform: translateY(-100px)
+    }
+}
+
+@keyframes column-moving {
+    100% {
+        transform: translateY(525px)
+    }
+}
+
+@keyframes column-back {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(50px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes combo-anim {
+    0%,100% {
+        opacity: .5
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+/*.slot{*/
+/*    position: absolute;*/
+/*    top: 64px;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    width: 1011px;*/
+/*    height: 568px;*/
+/*    background: url("../images/bg-slot.png");*/
+/*}*/
+
+/*.reels {*/
+/*    display: flex;*/
+/*    position: absolute;*/
+/*    top: calc((100% - 463px) / 2);*/
+/*    height: 441px;*/
+/*    left: calc((100% - 700px) / 2);*/
+/*    width: 696px;*/
+/*    overflow: hidden;*/
+/*    transition: opacity .5s ease;*/
+/*}*/
+
+/*.reel {*/
+/*    overflow: hidden;*/
+/*    width: calc(100% / 6);*/
+/*}*/
+
+/*.reel > .icons {*/
+/*    position: relative;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.reel > .icons > img {*/
+/*    width: 100%;*/
+/*    height: calc((100% / 5) - 3px);*/
+/*    object-fit: contain;*/
+/*    transform: translate3d(0, 0, 0);*/
+/*}*/
+
+/*#slot.inverted .reel {*/
+/*    transform: scaleY(-1);*/
+/*}*/
+
+/*#slot.inverted .reel > .icons > img {*/
+/*    transform: scaleY(-1);*/
+/*}*/
