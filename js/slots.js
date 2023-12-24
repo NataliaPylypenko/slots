@@ -5,6 +5,15 @@ const refs = {
     audioMusic: document.querySelector("#snd-music"),
     audioReels: document.querySelector("#snd-reels"),
     audioWin: document.querySelector("#snd-win"),
+    audioPopup_1: document.querySelector("#snd-popup-1"),
+    audioPopup_2: document.querySelector("#snd-popup-2"),
+};
+
+const ANIMATION_TIMES = {
+    time1: 200,
+    time2: 350,
+    time3: 500,
+    time4: 1000,
 };
 
 const symbols = [
@@ -19,9 +28,18 @@ const symbols = [
     "yellow",
 ];
 
-const random = () => {
-    return symbols[Math.floor(Math.random() * symbols.length)];
-};
+const columns = [
+    ".slot-column-1",
+    ".slot-column-2",
+    ".slot-column-3",
+    ".slot-column-4",
+    ".slot-column-5",
+    ".slot-column-6"
+];
+
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+const random = () => symbols[Math.floor(Math.random() * symbols.length)];
 
 const combos = [
     [
@@ -42,49 +60,20 @@ const combos = [
     ]
 ];
 
-const stopColumnAnimation = () => {
-    const time1 = 200;
-    const time2 = 500;
-    const time3 = 750;
+const stopColumnAnimation = async () => {
+    for (const columnSelector of columns) {
+        const column = document.querySelector(columnSelector);
+        column.classList.remove("slot-column-moving");
+        column.classList.add("slot-column-end");
+        await delay(ANIMATION_TIMES.time1);
+    }
 
-    const column1 = document.querySelector(".slot-column-1");
-    const column2 = document.querySelector(".slot-column-2");
-    const column3 = document.querySelector(".slot-column-3");
-    const column4 = document.querySelector(".slot-column-4");
-    const column5 = document.querySelector(".slot-column-5");
-    const column6 = document.querySelector(".slot-column-6");
+    await delay(ANIMATION_TIMES.time3);
 
-    column1.classList.remove("slot-column-moving");
-    column1.classList.add("slot-column-end");
+    refs.audioReels.pause();
+    await delay(ANIMATION_TIMES.time2);
 
-    setTimeout(() => {
-        column2.classList.remove("slot-column-moving");
-        column2.classList.add("slot-column-end");
-
-        setTimeout(() => {
-            column3.classList.remove("slot-column-moving");
-            column3.classList.add("slot-column-end");
-
-            setTimeout(() => {
-                column4.classList.remove("slot-column-moving");
-                column4.classList.add("slot-column-end");
-
-                setTimeout(() => {
-                    column5.classList.remove("slot-column-moving");
-                    column5.classList.add("slot-column-end");
-
-                    setTimeout(() => {
-                        column6.classList.remove("slot-column-moving");
-                        column6.classList.add("slot-column-end");
-
-                        refs.audioReels.pause();
-
-                        setTimeout(showModal, time3, refs.idModal);
-                    }, time3);
-                }, time2);
-            }, time2);
-        }, time1);
-    }, time1);
+    showModal(refs.idModal);
 };
 
 const changeCombos = () => {
@@ -112,10 +101,10 @@ const startColumnsAnimation = () => {
     refs.audioReels.currentTime = 0;
     refs.audioReels.play();
 
-    setTimeout(() => {
+    setTimeout(async () => {
         changeCombos();
-        stopColumnAnimation();
-    }, 1000);
+        await stopColumnAnimation();
+    }, ANIMATION_TIMES.time4);
 };
 
 const startSlotAnimation = () => {
@@ -134,15 +123,15 @@ const showModal = (idModal) => {
         document.querySelector("#btnSpin").addEventListener("click", hideModalSpin);
         refs.currentStep++;
         refs.idModal = 'modalGetBonus';
-        // refs.audioPopup_1.play();
+        refs.audioPopup_1.play();
     } else if (idModal === 'modalGetBonus') {
         document.querySelector("#btnGetBonus").addEventListener("click", hideModalGetBonus);
-        // refs.audioPopup_2.play();
+        refs.audioPopup_2.play();
 
         setTimeout(() => {
             refs.audioMusic.currentTime = 0;
             refs.audioMusic.play();
-        }, 500)
+        }, ANIMATION_TIMES.time3)
     }
 };
 
@@ -150,7 +139,6 @@ const hideModalSpin = () => {
     document.querySelector("#modalSpin").classList.remove("show");
     document.querySelector("#btnSpin").removeEventListener("click", hideModalSpin);
 
-    // document.querySelector("#modalSpin").addEventListener("animationend", delModal);
     startColumnsAnimation();
 };
 
@@ -158,7 +146,6 @@ const hideModalGetBonus = () => {
     document.querySelector("#modalGetBonus").classList.remove("show");
     document.querySelector("#btnGetBonus").removeEventListener("click", hideModalGetBonus);
 
-    // document.querySelector("#modalShow").addEventListener("animationend", delModal);
     showModalRegistration();
 };
 
