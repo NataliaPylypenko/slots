@@ -56,6 +56,13 @@ body {
     margin: 0 auto;
     padding: 0 10px;
 }
+
+.header__item {
+    font-family: 'Passion One', sans-serif;
+    font-size: 42px;
+    color: #FFDC41;
+}
+
 @media (max-width: 767px){
     .header__item {
         display: none;
@@ -97,6 +104,7 @@ body {
 }
 
 /* Main */
+
 .main {
     display: flex;
     justify-content: center;
@@ -124,12 +132,14 @@ body {
     cursor: pointer;
     align-self: flex-end;
 }
+
 .btn-play {
     position: absolute;
     background-color: #FFDC41;
     color: #1E1E28;
     animation: pulse 1s linear infinite;
 }
+
 .btn-play:before {
     content: '';
     position: absolute;
@@ -152,6 +162,7 @@ body {
         transform: scale(1);
     }
 }
+
 @keyframes increase{
     0% {
         transform: scale(1);
