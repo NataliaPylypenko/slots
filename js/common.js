@@ -1,31 +1,16 @@
 const messages = {
-    'en': {
-        "playNow": "Play now",
-    },
-    'pt': {
-        "playNow": "Jogue agora",
-    },
-    'de': {
-        "playNow": "Jetzt spielen",
+    'uk': {
+        "playNow": "Грати зараз",
     },
     'pl': {
         "playNow": "Zagraj teraz",
     },
-    'ca-EN': {
+    'en': {
         "playNow": "Play now",
     },
-    'ca-FR': {
-        "playNow": "Jouer nouveau",
-    },
-    'au': {
-        "playNow": "Play now",
-    },
-    'nz': {
-        "playNow": "Play now",
-    },
-    'in': {
-        "playNow": "Play now",
-    },
+    'de': {
+        "playNow": "Jetzt spielen",
+    }
 };
 
 const refs = {
